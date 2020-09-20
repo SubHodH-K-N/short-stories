@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <title>Short Stories</title>
+</head>
+<body>
+    <nav>
+        <h1 class="title">
+            <a href="/dashboard">Short Stories</a>
+        </h1>
+        <ul>
+            <% if(user) { %>
+                <li class="link">
+                    <a href="/dashboard">Dashboard</a>
+                </li>
+                <li class="link">
+                    <a href="/stories">Public Stories</a>
+                </li>
+                <li class="link">
+                    <a href="/logout">Logout</a>
+                </li>
+            <% } else { %>
+                <div class="about"><i class="fas fa-question"></i>
+                    <span class="info">View, Add, Modify and Delete Your Short Stories. You can also view other users' public short stories!!</span>
+                </div>
+                <li class="link">
+                    <a href="/login">Login</a>
+                </li>
+                <li class="link">
+                    <a href="/signup">Sign Up</a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>

@@ -1,0 +1,27 @@
+<%- include('partials/header'); %>
+<main class="public">
+    <div class="description">
+        <h1>Public Stories</h1>
+        <p>
+            View all the available public stories from all the users!!
+        </p>
+    </div>
+    <div class="container">
+        <% if(publicStories) { %>
+            <% publicStories.forEach(function(story){ %>
+                <div class="card">
+                    <h2><%= story.title %></h2>
+                    <h3>By: <%= story.username %></h3>
+                    <a class="link read" href="/stories/story/<%= story._id %>">Read The Story</a>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div class="card">
+                <p>
+                    No public stories to view here. Add one so that everyone can view it!
+                </p>
+            </div> 
+        <% } %>   
+    </div>
+</main>
+<%- include('partials/footer'); %>

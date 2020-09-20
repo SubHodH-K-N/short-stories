@@ -1,0 +1,47 @@
+<%- include('partials/header'); %>
+<main class="dashboard">
+    <div class="dashboard-title">
+        <h1>Welcome <%= user.username %>!!</h1>
+    </div>
+    <div class="container">
+        <% if(myStories) { %>
+            <% myStories.forEach(function(story){ %>
+                <div class="card">
+                    <h3><%=story.title %></h3>
+                    <p class="status <%= story.status %>"><%=story.status %></p>
+                    <a class="link read" href="/stories/story/<%= story._id %>">Read The Story</a>
+                    <a class="edit-button" href="/stories/editStories/<%= story._id %>"><i class="fas fa-edit"></i></a>
+                    <button data-id="<%= story._id %>" class="delete-button"><i class="far fa-trash-alt"></i></button>
+                </div>
+            <% }); %>
+        <% } else { %>
+        <% } %>
+        <div class="card">
+            <a href="stories/addStories" class="add-new">Add a new Story</a>
+        </div>
+    </div>
+</main>
+<script>
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    if(deleteButtons) {
+        deleteButtons.forEach((button) => { button.addEventListener('click', async (e) => {
+            const id = button.getAttribute('data-id');
+            try {
+                const res = await fetch('/stories/'+id, {
+                    method: 'DELETE'
+                });
+                const data = await res.json();
+                if(data.story) {
+                    location.assign('/dashboard');
+                }
+                if(data.error) {
+                    location.assign('/dashboard');
+                    console.log(data.error);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        })});
+    }
+</script>
+<%- include('partials/footer'); %>

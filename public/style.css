@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Linden+Hill&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1E488F;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    min-height: 100vh;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1.title {
+    font-family: 'Pacifico', sans-serif;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.link, .about {
+    padding: 5px 10px;
+    border-radius: 50px;
+    background: #086591;
+    margin-right: 10px;
+}
+
+.link:hover {
+    background: #1B2431;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.about {
+    align-self: center;
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.about .info{
+    font-size: 12px;
+    visibility: hidden;
+    width: 150px;
+    background-color: #1B2431;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    margin-left: -75px;
+}
+
+.about:hover {
+    background: #1B2431;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.about:hover .info {
+    visibility: visible;
+    
+}
+
+.login, .signup, .add, .edit {
+    background: #1B2431;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.login form{
+    width: 310px;
+    height: 340px;
+}
+
+.signup form {
+    width: 350px;
+    height: 400px;
+    
+}
+
+.form-title, .dashboard-title {
+    align-self: center;
+}
+
+input, textarea, select {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+}
+
+input:focus, button:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border: none;
+}
+
+.login form button, .signup form button, .add form button, .edit form button {  
+    color: #fff;
+    background-color: #1E488F;
+    padding: 10px 5px;
+    border-radius: 50px;
+}
+
+label {
+    font-weight: 700;
+    display: block;
+}
+
+.error {
+    color: rgb(255, 0, 0);
+    height: 10px;
+}
+
+.dashboard, .public {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    align-self: center;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1B2431;
+    border-radius: 12px;
+    margin: 0 25px 25px 0;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+}
+
+.card:hover {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.card  h3 {
+    text-align: center;
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.status {
+    font-family: 'Liden Hill', sans-serif;
+    color: #000;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 40%;
+    transform: rotate(-45deg);
+}
+
+.status.public {
+    background: green;
+}
+
+.secret {
+    background: red;
+}
+
+.edit-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #086591;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.delete-button {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: #af1d12;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.add-button {
+    margin-top: 30px;
+}
+
+.cancel-button {
+    font-weight: 700;
+    margin-top: 15px;
+    border-radius: 50px;
+    text-align: center;
+    padding: 5px 10px;
+    background: #af1d12;
+}
+
+.read:hover {
+    background: #9900FA;
+}
+
+main.story {
+    width: 350px;
+    padding: 20px;
+    background: #1B2431;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+}
+
+.story-container {
+    font-family: 'Bree Serif', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-title {
+    align-self: center;
+    margin-bottom: 30px;
+}
+.story-content {
+    overflow-wrap: break-word;
+    border-radius: 12px;
+}
+
+.story-by {
+    align-self: flex-end;
+}
+footer {
+    opacity: 0.5;
+    font-weight: 400;
+}
