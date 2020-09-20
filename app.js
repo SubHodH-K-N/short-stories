@@ -31,6 +31,10 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 //Routes
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+    next();
+});
 app.use('*', checkUser);
 app.use('/', require('./routes/index'));
 app.use(require('./routes/auth'));
