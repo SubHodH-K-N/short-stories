@@ -43,36 +43,37 @@
     const usernameError = document.querySelector('.username.error');
     const emailError = document.querySelector('.email.error');
     const passwordError = document.querySelector('.password.error');
+    if(form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = form.username.value;
+            const email = form.email.value;
+            const password = form.password.value;
+            usernameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const username = form.username.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        usernameError.textContent = '';
-        emailError.textContent = '';
-        passwordError.textContent = '';
+            try {
+                const res = await fetch('/signup', {
+                    method: 'POST',
+                    body: JSON.stringify({ username, email, password }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await res.json();
+                if(data.errors) {
+                    usernameError.textContent = data.errors.username;
+                    emailError.textContent = data.errors.email;
+                    passwordError.textContent = data.errors.password;
+                }
 
-        try {
-            const res = await fetch('/signup', {
-                method: 'POST',
-                body: JSON.stringify({ username, email, password }),
-                headers: { 'Content-Type': 'application/json' }
-            });
-            const data = await res.json();
-            if(data.errors) {
-                usernameError.textContent = data.errors.username;
-                emailError.textContent = data.errors.email;
-                passwordError.textContent = data.errors.password;
-            }
-
-            if(data.user) {
-                location.assign('/dashboard');
-            }
+                if(data.user) {
+                    location.assign('/dashboard');
+                }
             
-        } catch (error) {
-            console.log(error);
-        }
-    });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    }
 </script>
 <%- include('partials/footer'); %>
