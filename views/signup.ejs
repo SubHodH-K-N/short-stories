@@ -1,5 +1,6 @@
 <%- include('partials/header'); %>
 <main class="signup">
+    <% if(!user) { %>
     <form>
         <div class="form-title">
             <h2>
@@ -23,6 +24,19 @@
         </div>
         <button>Sign Up</button>
     </form>
+    <% } else { %>
+        <div class="login-container">
+            <div class="login-card">
+                <h2>You are already logged in!</h2>
+                <p>You can checkout these pages!</p>
+                <div class="nav-buttons">
+                    <a class="link visit" href="/dashboard">Dashboard</a>
+                    <a class="link visit" href="/stories">Public Stories</a>
+                    <a class="link visit" Shref="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    <% } %>
 </main>
 <script>
     const form = document.querySelector('form');

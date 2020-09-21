@@ -9,7 +9,7 @@
                 <div class="card">
                     <h3><%=story.title %></h3>
                     <p class="status <%= story.status %>"><%=story.status %></p>
-                    <a class="link read" href="/stories/story/<%= story._id %>">Read The Story</a>
+                    <a class="link visit" href="/stories/story/<%= story._id %>">Read The Story</a>
                     <a class="edit-button" href="/stories/editStories/<%= story._id %>"><i class="fas fa-edit"></i></a>
                     <button data-id="<%= story._id %>" class="delete-button"><i class="far fa-trash-alt"></i></button>
                 </div>
