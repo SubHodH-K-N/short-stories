@@ -16,7 +16,7 @@ const handleErrors = (error) => {
 
 module.exports.stories_get = async (req, res) => {
     try {
-        const stories = await Story.find({ status: 'public' });
+        const stories = await Story.find({ status: 'public' }).sort({ createdAt: 'desc' });
         if(stories.length != 0) {
             res.locals.publicStories = stories;
         } else {
